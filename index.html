@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101827">
+    <title>My Personal Vault</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="loginPage" class="page active">
+        <div class="login-card">
+            <div class="big-icon">🔐</div>
+            <h1>My Personal Vault</h1>
+            <p>Your private digital space</p>
+
+            <form id="loginForm">
+                <input id="email" type="email" placeholder="Email address"
+                       autocomplete="username" required>
+                <input id="password" type="password" placeholder="Password"
+                       autocomplete="current-password" required>
+                <button id="loginButton" type="submit">Unlock Vault</button>
+            </form>
+            <p id="loginMessage" class="message" role="status"></p>
+        </div>
+    </section>
+
+    <section id="vaultPage" class="page">
+        <header class="header">
+            <div>
+                <h1>🔐 My Personal Vault</h1>
+                <p id="userEmail"></p>
+            </div>
+            <button id="logoutButton" class="danger">Logout</button>
+        </header>
+
+        <main class="content">
+            <section class="panel">
+                <h2>📤 Upload files</h2>
+                <label for="categorySelect">Choose category</label>
+                <select id="categorySelect">
+                    <option value="Photos">Photos</option>
+                    <option value="Documents">Documents</option>
+                    <option value="Personal">🔒 Personal</option>
+                </select>
+                <label for="fileInput">Choose files</label>
+                <input id="fileInput" type="file" multiple>
+                <button id="uploadButton">Upload selected files</button>
+                <p id="uploadMessage" class="message" role="status"></p>
+            </section>
+
+            <section class="categories">
+                <article class="category">
+                    <div class="big-icon">📸</div>
+                    <h2>Photos</h2>
+                    <p>Your photo gallery</p>
+                    <button data-category="Photos">Open Photos</button>
+                </article>
+                <article class="category">
+                    <div class="big-icon">📄</div>
+                    <h2>Documents</h2>
+                    <p>Your documents</p>
+                    <button data-category="Documents">Open Documents</button>
+                </article>
+                <article class="category personal-card">
+                    <div class="big-icon">🔒</div>
+                    <h2>Personal</h2>
+                    <p>PIN-protected files</p>
+                    <button data-category="Personal">Unlock Personal</button>
+                </article>
+            </section>
+
+            <section id="fileSection" class="panel" hidden>
+                <div class="section-heading">
+                    <h2 id="fileSectionTitle">Your files</h2>
+                    <button id="closeFilesButton" class="secondary">Close</button>
+                </div>
+                <div id="fileList"></div>
+            </section>
+        </main>
+    </section>
+
+    <div id="pinModal" class="modal" hidden>
+        <div class="pin-card">
+            <div class="big-icon">🔐</div>
+            <h2>Personal Files Locked</h2>
+            <p>Enter your six-digit PIN.</p>
+
+            <form id="pinForm">
+                <input id="personalPin" type="password"
+                       inputmode="numeric" pattern="[0-9]{6}"
+                       minlength="6" maxlength="6"
+                       autocomplete="off" placeholder="••••••" required>
+                <button id="pinUnlockButton" type="submit">Unlock Personal</button>
+            </form>
+            <p id="pinMessage" class="message" role="status"></p>
+
+            <button id="pinCancelButton" class="secondary" type="button">
+                Cancel
+            </button>
+
+            <hr>
+            <h3>First time? Set your PIN</h3>
+            <form id="setPinForm">
+                <input id="newPersonalPin" type="password"
+                       inputmode="numeric" pattern="[0-9]{6}"
+                       minlength="6" maxlength="6"
+                       autocomplete="new-password"
+                       placeholder="Create six-digit PIN" required>
+                <input id="confirmPersonalPin" type="password"
+                       inputmode="numeric" pattern="[0-9]{6}"
+                       minlength="6" maxlength="6"
+                       autocomplete="new-password"
+                       placeholder="Confirm six-digit PIN" required>
+                <button type="submit">Set / Change PIN</button>
+            </form>
+            <p id="setPinMessage" class="message" role="status"></p>
+        </div>
+    </div>
+
+    <div id="photoViewer" class="photo-viewer" hidden>
+        <button id="viewerCloseButton" class="viewer-close"
+                aria-label="Close photo">✕</button>
+        <img id="viewerImage" alt="Vault photo">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>

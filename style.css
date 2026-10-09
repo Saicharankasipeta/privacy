@@ -1,0 +1,340 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: #101827;
+    background-image:
+        linear-gradient(rgba(5, 12, 28, .48), rgba(5, 12, 28, .68)),
+        url("myphoto.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.page.active {
+    display: block;
+}
+
+#loginPage.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 16px;
+}
+
+.login-card,
+.pin-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 30px 24px;
+    text-align: center;
+    border-radius: 22px;
+    background: rgba(15, 23, 42, .88);
+    border: 1px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.big-icon {
+    font-size: 44px;
+    margin-bottom: 12px;
+}
+
+p {
+    color: #d1d9e8;
+    overflow-wrap: anywhere;
+}
+
+input,
+select {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    margin: 12px 0;
+    padding: 12px;
+    border: 1px solid #64748b;
+    border-radius: 10px;
+    background: #f8fafc;
+    color: #111827;
+    font-size: 16px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    text-align: left;
+}
+
+button {
+    min-height: 44px;
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 10px;
+    background: #7c3aed;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+button:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+#loginButton,
+#uploadButton,
+#pinUnlockButton,
+#pinForm button,
+#setPinForm button {
+    width: 100%;
+}
+
+.message {
+    min-height: 20px;
+    overflow-wrap: anywhere;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 5%;
+    background: rgba(5, 12, 28, .86);
+    border-bottom: 1px solid rgba(255, 255, 255, .15);
+    backdrop-filter: blur(10px);
+}
+
+.header h1 {
+    font-size: 23px;
+    margin: 0;
+}
+
+.header p {
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+.content {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 24px 18px;
+}
+
+.panel,
+.category {
+    padding: 22px;
+    margin-bottom: 22px;
+    border-radius: 18px;
+    background: rgba(12, 20, 38, .86);
+    border: 1px solid rgba(255, 255, 255, .16);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.category {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.personal-card {
+    border-color: rgba(167, 139, 250, .7);
+}
+
+.danger {
+    background: #dc2626;
+}
+
+.secondary {
+    background: #475569;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.photo-card {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 9px;
+    background: #111827;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.photo-delete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    min-height: 36px;
+    padding: 6px;
+    background: rgba(0, 0, 0, .8);
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.file-name {
+    overflow-wrap: anywhere;
+}
+
+.file-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.download-btn {
+    background: #2563eb;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, .9);
+}
+
+.pin-card {
+    max-width: 400px;
+    margin: auto;
+}
+
+.pin-card input {
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.pin-card hr {
+    border: 0;
+    border-top: 1px solid #475569;
+    margin: 20px 0;
+}
+
+.photo-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 11000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, .96);
+}
+
+.photo-viewer img {
+    max-width: 95vw;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.viewer-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #475569;
+}
+
+@media (max-width: 700px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .content {
+        padding: 18px 12px;
+    }
+
+    .categories {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 5px;
+    }
+
+    .file-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .login-card,
+    .pin-card {
+        padding: 25px 18px;
+    }
+}
